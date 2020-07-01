@@ -1,0 +1,17 @@
+#btn1{
+  margin-left: 70px;
+}
+
+button{
+  background-color: gainsboro;
+  width: 35px;
+  margin-left: 2px;
+  margin-right: 2px;
+  color: black;
+  padding: 3px;
+  border: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+}

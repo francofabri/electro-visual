@@ -1,0 +1,32 @@
+<h2 mat-dialog-title [innerHTML]="data.title"></h2>
+<mat-dialog-content [innerHTML]="data.message"></mat-dialog-content>
+<mat-dialog-actions class="flexbox-parent">
+  <div class="container">
+    <div class="row">
+      <div class="col align-self-start"></div>
+            <div class="col align-self-center">
+                <svg width="300" height="100">
+                  <rect x="50" y="35" width="200" height="10" style="fill:steelblue;stroke-width:1;stroke:rgb(0,0,0)" />
+                  <polygon points="50,50 45,55 45,65 55,65 55,55" style="fill:black;stroke:black;stroke-width:1" />
+                  <polygon points="250,50 245,55 245,65 255,65 255,55" style="fill:black;stroke:black;stroke-width:1" />
+                </svg>
+            </div>
+      <div class="col align-self-end"></div>
+    </div>
+    <div class="row">
+      <div class="col align-self-start"></div>
+      <div class="col align-self-center">
+        <input type="number" [(ngModel)]="value">
+      </div>
+      <div class="col align-self-end"></div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-6"></div>
+      <div class="col-6">
+        <button mat-button mat-raised-button mat-dialog-close *ngIf="data.showCancelBtn">Volver</button>
+        <button mat-button mat-raised-button color="#63C1DC" *ngIf="data.showOKBtn" (click)="close()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+</mat-dialog-actions>

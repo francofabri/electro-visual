@@ -1,0 +1,81 @@
+<div id='container'>
+    <div id='container2'></div>
+    <div id='container3'>
+        <select name="derivations"
+                id="derivations"
+                (change)="derivationChanged($event.target.value)">
+            <option value="Seleccionar" selected="true">Seleccionar</option>
+            <option value="Principales">Principales</option>
+            <option value="Aumentadas">Aumentadas</option>
+            <option value="V1, V2 y V3">V1, V2 y V3</option>
+            <option value="V4, V5 y V6">V4, V5 y V6</option>
+            <option value="Miembros">Miembros</option>
+            <option value="Precordiales">Precordiales</option>
+            <option value="DII, V2 y V5">DII, V2 y V5</option>
+            <option value="12x1">12x1</option>
+            <option value="6x2">6x2</option>
+            <option value="3x4">3x4</option>
+            <option value="DI">DI</option>
+            <option value="DII">DII</option>
+            <option value="DIII">DIII</option>
+            <option value="aVr">aVr</option>
+            <option value="aVl">aVl</option>
+            <option value="aVf">aVf</option>
+            <option value="V1">V1</option>
+            <option value="V2">V2</option>
+            <option value="V3">V3</option>
+            <option value="V4">V4</option>
+            <option value="V5">V5</option>
+            <option value="V6">V6</option>
+        </select>
+        <select name="temporal-scale" id="temporal-scale" #tempScale
+                (change)="timeChanged($event.target.value)">
+            <option  value="6.25 mm/S">6.25 mm/S</option>
+            <option  value="12.5 mm/S">12.5 mm/S</option>
+            <option  value="25 mm/S" selected="true">25 mm/S</option>
+            <option  value="50 mm/S">50 mm/S</option>
+            <option  value="100 mm/S">100 mm/S</option>
+        </select>
+        <select name="amplitude-scale" id="amplitude-scale" #ampScale
+                (change)="amplitudeChanged($event.target.value)">
+            <option  value="2.5 mm/mV">2.5 mm/mV</option>
+            <option  value="5 mm/mV">5 mm/mV</option>
+            <option  value="10 mm/mV" selected="true">10 mm/mV</option>
+            <option  value="20 mm/mV">20 mm/mV</option>
+            <option  value="40 mm/mV">40 mm/mV</option>
+        </select>
+        <div id="container_buttons">
+            <button value="1/4" class="button"
+                    (click)="[scaleChanged($event.target.value),
+                              tempScale.value=$event.target.value.replace('1/4','6.25 mm/S'),
+                              ampScale.value=$event.target.value.replace('1/4','2.5 mm/mV')]">x1/4</button>
+            <button value="1/2" class="button"
+                    (click)="[scaleChanged($event.target.value),
+                              tempScale.value=$event.target.value.replace('1/2','12.5 mm/S'),
+                              ampScale.value=$event.target.value.replace('1/2','5 mm/mV')]">x1/2</button>
+            <button value="1"   class="button"
+                    (click)="[scaleChanged($event.target.value),
+                              tempScale.value=$event.target.value.replace('1','25 mm/S'),
+                              ampScale.value=$event.target.value.replace('1','10 mm/mV')]">X1</button>
+            <button value="2"   class="button"
+                    (click)="[scaleChanged($event.target.value),
+                              tempScale.value=$event.target.value.replace('2','50 mm/S'),
+                              ampScale.value=$event.target.value.replace('2','20 mm/mV')]">X2</button>
+            <button value="4"   class="button"
+                    (click)="[scaleChanged($event.target.value),
+                              tempScale.value=$event.target.value.replace('4','100 mm/S'),
+                              ampScale.value=$event.target.value.replace('4','40 mm/mV')]">X4</button>
+        </div>
+        <app-popup (textoEmitido)="actualizar($event)"></app-popup>
+
+        <div class="wrapper">
+          <button mat-raised-button color="primary" (click)="openDialog()">Show dialog</button>
+        </div>
+        
+    </div>
+    <div id='container4'>
+      <app-rhythm-channel #graphicData (position)="positionChanged($event)"></app-rhythm-channel>
+    </div>
+</div>
+
+<input type="file" id="file-input" />
